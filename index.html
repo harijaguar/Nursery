@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nursery</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #68a1e7;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            flex: 1;
+            margin: 1em;
+            padding: 1.5em;
+            text-align: center;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .plants {
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .plant {
+            flex: 1;
+            margin: 1em;
+            text-align: center;
+        }
+
+        .plant img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+
+        .plant h2 {
+            color: #333;
+        }
+
+        .plant p {
+            color: #555;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .feature {
+                margin: 1em 0;
+            }
+
+            .plants {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Our Nursery</h1>
+        <p>Providing a nurturing environment for your little ones</p>
+    </header>
+
+    <section class="plants" >
+        <div class="plant" onclick="redirectToPlants()">
+            <img src="plants.jpg" alt="Plants Image">
+            <h2>Flowers</h2>
+            <p>Click to view plants</p>
+        </div>
+        <div class="plant" onclick="redirectToTrees()">
+            <img src="trees.jpg" alt="trees Image" >
+            <h2>Trees</h2>
+            <p>Click to view plants</p>
+        </div>
+        <div class="plant" onclick="redirectToVegetable()">
+            <img src="vegetable.jpg" alt="vegetable Image">
+            <h2>vegetable </h2>
+            <p>Click to view plants</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="main-content">
+            <div class="feature" onclick="redirectToPlants()">
+                <h2>Quality Care</h2>
+                <p>Our experienced staff provides quality care for your children in a safe and loving environment.</p>
+            </div>
+
+            <div class="feature" onclick="redirectToPlants()">
+                <h2>Interactive Learning</h2>
+                <p>We focus on interactive learning activities to stimulate your child's development and curiosity.</p>
+            </div>
+
+            <div class="feature" onclick="redirectToPlants()">
+                <h2>Outdoor Play</h2>
+                <p>Our nursery offers a secure outdoor play area where children can explore and have fun.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Nursery. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function redirectToPlants() {
+            window.location.href = 'plants.html?name=flowers';
+        }
+        function redirectToTrees() {
+            window.location.href = 'plants.html?name=trees';
+        }
+        function redirectToVegetable() {
+            window.location.href = 'plants.html?name=vegetable';
+        }
+    </script>
+</body>
+
+</html>

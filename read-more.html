@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read More</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .plant-details {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .plant-details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .test-amount {
+            font-weight: bold;
+            color: green;
+            margin-left: 10px;
+        }
+
+        .cartbtn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cartbtn:hover {
+            background-color: #45a049;
+        }
+
+        /* Additional styles as needed */
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        const plants = {
+            flowers: {
+                "rose": {
+                    "description": "A rose is either a woody perennial flowering plant of the genus Rosa in the family Rosaceae or the flower it bears. There are over three hundred species",
+                    "amount": "100$"
+                },
+                "lily": {
+                    "description": "Lilium is a genus of herbaceous flowering plants growing from bulbs, all with large prominent flowers. They are the true lilies. Lilies are a group of flowering plants which are important in culture and literature in much of the world.",
+                    "amount": "200$"
+                },
+                "Iris": {
+                    "description": "Iris is a flowering plant genus of 310 accepted species with showy flowers. As well as being the scientific name, iris is also widely used as a common name for all Iris species, as well as some belonging to other closely related genera.",
+                    "amount": "150$"
+                }, "Dahlia": {
+                    "description": "Dahlia is a genus of bushy, tuberous, herbaceous perennial plants native to Mexico and Central America. As a member of the Asteraceae family of dicotyledonous plants, its relatives include the sunflower, daisy, chrysanthemum, and zinnia. There are 49 species of Dahlia, with hybrids commonly grown as garden plants.",
+                    "amount": "50$"
+                },
+                "mango": {
+                    "description": "Mango trees are deep-rooted, symmetrical evergreens that attain heights of 90 feet and widths of 80 feet. Mango trees have simple alternate lanceolate leaves that are 12 to 16 inches in length and yellow-green, purple, or copper in color when young. Mature leaves are leathery, glossy, and deep green in color.",
+                    "amount": "100$"
+                },
+                "jackfruit": {
+                    "description": "The jackfruit tree (Artocarpus heterophyllus), also known by the common name jack tree, is a tropical fruit tree in the Moraceae family that is a relative of breadfruit, mulberry, and fig trees.",
+                    "amount": "200$"
+                },
+                "orange": {
+                    "description": "What is the description of orange tree? Citrus sinensis, commonly known as orange or sweet orange, is a small evergreen tree originally domesticated in subtropical Asia. ",
+                    "amount": "150$"
+                }, "beans": {
+                    "description": "From a botanical point of view, beans fall into the legume class. This means they are a sort of plant that produces its fruits in pods.",
+                    "amount": "100$"
+                },
+                "spinach": {
+                    "description": "Spinach (Spinacia oleracea) is a leafy green vegetable that originated in Persia. It belongs to the amaranth family and is related to beets and quinoa.",
+                    "amount": "200$"
+                },
+                "beetroot": {
+                    "description": "Beetroot (Beta vulgaris) is a root vegetable also known as red beet, table beet, garden beet, or just beet. Packed with essential nutrients, beetroots are a great source of fiber, folate (vitamin B9), manganese, potassium, iron, and vitamin C.",
+                    "amount": "150$"
+                }
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const plantName = urlParams.get('name');
+
+            if (plantName && plants.flowers[plantName]) {
+                const plantInfo = plants.flowers[plantName];
+
+                // Create HTML elements dynamically
+                const container = document.createElement("div");
+                container.className = "container";
+
+                const plantDetails = document.createElement("div");
+                plantDetails.className = "plant-details";
+
+                const img = document.createElement("img");
+                img.src = `plants/${plantName.toLowerCase()}.jpg`;
+                img.alt = `${plantName} Image`;
+
+                const amount = document.createElement("p");
+                amount.className = 'test-amount';
+                amount.textContent = `Amount: ${plantInfo["amount"]}`;
+
+                const a = document.createElement("button");
+                a.type = "button";
+                a.className = "cartbtn";
+                a.setAttribute("aria-label", "Add to Cart");
+                a.appendChild(document.createTextNode("Add to Cart"));
+
+
+
+                const heading = document.createElement("h1");
+                heading.textContent = plantName;
+
+                const description = document.createElement("p");
+                description.textContent = plantInfo.description;
+
+                plantDetails.appendChild(img);
+                plantDetails.appendChild(heading);
+                plantDetails.appendChild(description);
+                plantDetails.appendChild(amount);
+                plantDetails.appendChild(a);
+                container.appendChild(plantDetails);
+                document.body.appendChild(container);
+            } else {
+                console.error("Plant not found");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
